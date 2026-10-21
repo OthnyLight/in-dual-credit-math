@@ -1,0 +1,586 @@
+{
+  "sample": {
+    "cohorts": "2021-2024",
+    "min_inpub": 10,
+    "school_cohorts": 1379,
+    "schools": 359,
+    "grads": 268225,
+    "inpub": 99332,
+    "school_cohorts_before_controls": 1442
+  },
+  "descriptives": {
+    "dc_share_median": 0.69,
+    "dc_share_p10": 0.409,
+    "dc_share_p90": 0.87,
+    "dc_share_weighted_mean": 0.625,
+    "gpa_weighted_mean": 2.81,
+    "credits_weighted_mean": 22.9,
+    "remed_rate_weighted_mean": 0.048,
+    "frl_share_median": 0.361,
+    "corp_early_alg_median": 0.216,
+    "calc_offered_share_schools": 0.758,
+    "corr_dc_frl": -0.39,
+    "corr_dc_gpa": 0.44
+  },
+  "models": {
+    "gpa": {
+      "M1": {
+        "b": 0.065,
+        "se": 0.0111,
+        "p": 0.0,
+        "lo": 0.0433,
+        "hi": 0.0868,
+        "n": 1379,
+        "r2": 0.165
+      },
+      "M2": {
+        "b": 0.0132,
+        "se": 0.0052,
+        "p": 0.0111,
+        "lo": 0.003,
+        "hi": 0.0234,
+        "n": 1379,
+        "r2": 0.641
+      },
+      "M3": {
+        "b": 0.0132,
+        "se": 0.0052,
+        "p": 0.0113,
+        "lo": 0.003,
+        "hi": 0.0235,
+        "n": 1379,
+        "r2": 0.641
+      },
+      "M3_controls": {
+        "frl10": {
+          "b": -0.095,
+          "p": 0.0
+        },
+        "ap10": {
+          "b": 0.0444,
+          "p": 0.0
+        },
+        "alg10": {
+          "b": -0.0021,
+          "p": 0.5487
+        },
+        "calc": {
+          "b": 0.014,
+          "p": 0.3858
+        },
+        "advm": {
+          "b": -0.0072,
+          "p": 0.6468
+        },
+        "lgr": {
+          "b": -0.0117,
+          "p": 0.3968
+        }
+      },
+      "M4": {
+        "b": 0.009,
+        "se": 0.0052,
+        "p": 0.0856,
+        "lo": -0.0013,
+        "hi": 0.0192,
+        "n": 1379,
+        "r2": 0.648
+      },
+      "M5": {
+        "b": 0.0166,
+        "se": 0.0088,
+        "p": 0.0606,
+        "lo": -0.0007,
+        "hi": 0.0339,
+        "n": 1379,
+        "r2": 0.832
+      }
+    },
+    "credits": {
+      "M1": {
+        "b": 0.6378,
+        "se": 0.1123,
+        "p": 0.0,
+        "lo": 0.4178,
+        "hi": 0.8579,
+        "n": 1379,
+        "r2": 0.137
+      },
+      "M2": {
+        "b": 0.1777,
+        "se": 0.0552,
+        "p": 0.0013,
+        "lo": 0.0694,
+        "hi": 0.2859,
+        "n": 1379,
+        "r2": 0.63
+      },
+      "M3": {
+        "b": 0.1751,
+        "se": 0.0543,
+        "p": 0.0013,
+        "lo": 0.0686,
+        "hi": 0.2815,
+        "n": 1379,
+        "r2": 0.63
+      },
+      "M3_controls": {
+        "frl10": {
+          "b": -0.7834,
+          "p": 0.0
+        },
+        "ap10": {
+          "b": 0.7829,
+          "p": 0.0
+        },
+        "alg10": {
+          "b": 0.0134,
+          "p": 0.7517
+        },
+        "calc": {
+          "b": 0.1421,
+          "p": 0.567
+        },
+        "advm": {
+          "b": -0.0862,
+          "p": 0.7057
+        },
+        "lgr": {
+          "b": 0.0668,
+          "p": 0.625
+        }
+      },
+      "M4": {
+        "b": 0.0737,
+        "se": 0.0457,
+        "p": 0.1065,
+        "lo": -0.0158,
+        "hi": 0.1633,
+        "n": 1379,
+        "r2": 0.663
+      },
+      "M5": {
+        "b": 0.1887,
+        "se": 0.098,
+        "p": 0.0543,
+        "lo": -0.0034,
+        "hi": 0.3808,
+        "n": 1379,
+        "r2": 0.83
+      }
+    },
+    "remed_rate": {
+      "M1": {
+        "b": -0.0035,
+        "se": 0.0015,
+        "p": 0.019,
+        "lo": -0.0064,
+        "hi": -0.0006,
+        "n": 1379,
+        "r2": 0.022
+      },
+      "M2": {
+        "b": -0.0021,
+        "se": 0.0016,
+        "p": 0.1822,
+        "lo": -0.0052,
+        "hi": 0.001,
+        "n": 1379,
+        "r2": 0.092
+      },
+      "M3": {
+        "b": -0.0022,
+        "se": 0.0016,
+        "p": 0.1574,
+        "lo": -0.0053,
+        "hi": 0.0009,
+        "n": 1379,
+        "r2": 0.095
+      },
+      "M3_controls": {
+        "frl10": {
+          "b": 0.0012,
+          "p": 0.505
+        },
+        "ap10": {
+          "b": -0.0035,
+          "p": 0.0962
+        },
+        "alg10": {
+          "b": 0.002,
+          "p": 0.1055
+        },
+        "calc": {
+          "b": -0.0027,
+          "p": 0.7012
+        },
+        "advm": {
+          "b": 0.0051,
+          "p": 0.4683
+        },
+        "lgr": {
+          "b": -0.0098,
+          "p": 0.0148
+        }
+      },
+      "M4": {
+        "b": -0.0025,
+        "se": 0.0016,
+        "p": 0.1131,
+        "lo": -0.0057,
+        "hi": 0.0006,
+        "n": 1379,
+        "r2": 0.096
+      },
+      "M5": {
+        "b": -0.0008,
+        "se": 0.0019,
+        "p": 0.6777,
+        "lo": -0.0045,
+        "hi": 0.0029,
+        "n": 1379,
+        "r2": 0.779
+      }
+    }
+  },
+  "attenuation_gpa_M1_to_M3": 0.8,
+  "attenuation_credits_M1_to_M3": 0.73,
+  "p10_p90_implied": {
+    "dc_pp": 46.2,
+    "gpa": 0.061,
+    "credits": 0.81
+  },
+  "heterogeneity": {
+    "frl_hi": {
+      "gpa": {
+        "slope_other": 0.0073,
+        "se_other": 0.0066,
+        "slope_group": 0.0199,
+        "se_group": 0.0068,
+        "interaction": 0.0127,
+        "p_interaction": 0.1569
+      },
+      "credits": {
+        "slope_other": 0.1274,
+        "se_other": 0.0615,
+        "slope_group": 0.2288,
+        "se_group": 0.0882,
+        "interaction": 0.1015,
+        "p_interaction": 0.3281
+      }
+    },
+    "rural": {
+      "gpa": {
+        "slope_other": 0.013,
+        "se_other": 0.0066,
+        "slope_group": 0.0137,
+        "se_group": 0.0068,
+        "interaction": 0.0006,
+        "p_interaction": 0.9431
+      },
+      "credits": {
+        "slope_other": 0.1882,
+        "se_other": 0.0689,
+        "slope_group": 0.1432,
+        "se_group": 0.0816,
+        "interaction": -0.0451,
+        "p_interaction": 0.6717
+      }
+    },
+    "alg_lo": {
+      "gpa": {
+        "slope_other": 0.0152,
+        "se_other": 0.0066,
+        "slope_group": 0.0109,
+        "se_group": 0.0067,
+        "interaction": -0.0043,
+        "p_interaction": 0.6059
+      },
+      "credits": {
+        "slope_other": 0.1439,
+        "se_other": 0.066,
+        "slope_group": 0.2106,
+        "se_group": 0.0778,
+        "interaction": 0.0668,
+        "p_interaction": 0.4851
+      }
+    },
+    "calc": {
+      "gpa": {
+        "slope_other": 0.0165,
+        "se_other": 0.0072,
+        "slope_group": 0.0123,
+        "se_group": 0.0061,
+        "interaction": -0.0042,
+        "p_interaction": 0.6236
+      },
+      "credits": {
+        "slope_other": 0.2157,
+        "se_other": 0.1462,
+        "slope_group": 0.1632,
+        "se_group": 0.0565,
+        "interaction": -0.0525,
+        "p_interaction": 0.7376
+      }
+    }
+  },
+  "within_school": {
+    "school_cohorts": 550,
+    "schools": 179,
+    "gpa_gap_mean": 0.56,
+    "credit_gap_mean": 6.9,
+    "share_positive_gap": 0.94,
+    "gap_slope_dc10": 0.125,
+    "gap_slope_p": 0.0,
+    "nodc_gpa_slope_dc10": -0.1124
+  },
+  "sensitivity": {
+    "main": {
+      "gpa": {
+        "b": 0.0132,
+        "se": 0.0052,
+        "p": 0.0113,
+        "n": 1379
+      },
+      "credits": {
+        "b": 0.1751,
+        "se": 0.0543,
+        "p": 0.0013,
+        "n": 1379
+      }
+    },
+    "no_virtual": {
+      "gpa": {
+        "b": 0.0141,
+        "se": 0.005,
+        "p": 0.0048,
+        "n": 1335
+      },
+      "credits": {
+        "b": 0.0846,
+        "se": 0.0533,
+        "p": 0.1127,
+        "n": 1335
+      }
+    },
+    "unweighted": {
+      "gpa": {
+        "b": 0.0276,
+        "se": 0.0056,
+        "p": 0.0,
+        "n": 1379
+      },
+      "credits": {
+        "b": 0.3113,
+        "se": 0.0761,
+        "p": 0.0,
+        "n": 1379
+      }
+    },
+    "min30": {
+      "gpa": {
+        "b": 0.0075,
+        "se": 0.0055,
+        "p": 0.1674,
+        "n": 922
+      },
+      "credits": {
+        "b": 0.1166,
+        "se": 0.0583,
+        "p": 0.0455,
+        "n": 922
+      }
+    },
+    "hs_alg": {
+      "gpa": {
+        "b": 0.0155,
+        "se": 0.0051,
+        "p": 0.0026,
+        "n": 1398
+      },
+      "credits": {
+        "b": 0.1602,
+        "se": 0.0503,
+        "p": 0.0014,
+        "n": 1398
+      }
+    },
+    "both_alg": {
+      "gpa": {
+        "b": 0.0159,
+        "se": 0.0052,
+        "p": 0.0022,
+        "n": 1370
+      },
+      "credits": {
+        "b": 0.1691,
+        "se": 0.0534,
+        "p": 0.0015,
+        "n": 1370
+      }
+    },
+    "with2019": {
+      "gpa": {
+        "b": 0.011,
+        "se": 0.0047,
+        "p": 0.0199,
+        "n": 1718
+      },
+      "credits": {
+        "b": 0.1456,
+        "se": 0.0514,
+        "p": 0.0046,
+        "n": 1718
+      }
+    },
+    "only2024": {
+      "gpa": {
+        "b": 0.0153,
+        "se": 0.0084,
+        "p": 0.0688,
+        "n": 348
+      },
+      "credits": {
+        "b": 0.1393,
+        "se": 0.0767,
+        "p": 0.0695,
+        "n": 348
+      }
+    }
+  },
+  "sensitivity_range_gpa": [
+    0.0075,
+    0.0276
+  ],
+  "sensitivity_range_credits": [
+    0.0846,
+    0.3113
+  ],
+  "access": {
+    "schools_crdc_2324": 439,
+    "traditional_schools": 381,
+    "low_uptake_threshold": 0.333,
+    "tiers": {
+      "Dual credit, but no calculus": {
+        "schools": 41,
+        "students": 17509
+      },
+      "No dual enrollment reported": {
+        "schools": 19,
+        "students": 3990
+      },
+      "Thin pathway: no calculus and low uptake": {
+        "schools": 20,
+        "students": 9853
+      },
+      "Dual credit and calculus": {
+        "schools": 301,
+        "students": 290675
+      }
+    },
+    "no_calc_share_schools": 0.202,
+    "no_calc_share_students": 0.093,
+    "no_dual_share_schools": 0.05,
+    "virtual_alt_schools": 58,
+    "by_locale": {
+      "City": {
+        "schools": 81.0,
+        "students": 91056.0,
+        "no_calculus_pct_schools": 39.506,
+        "no_dual_pct_schools": 12.346,
+        "thin_or_none_pct_students": 8.663,
+        "median_dc_share": 0.5
+      },
+      "Rural": {
+        "schools": 176.0,
+        "students": 92582.0,
+        "no_calculus_pct_schools": 13.636,
+        "no_dual_pct_schools": 1.705,
+        "thin_or_none_pct_students": 1.379,
+        "median_dc_share": 0.734
+      },
+      "Suburb": {
+        "schools": 69.0,
+        "students": 96631.0,
+        "no_calculus_pct_schools": 21.739,
+        "no_dual_pct_schools": 7.246,
+        "thin_or_none_pct_students": 4.795,
+        "median_dc_share": 0.616
+      },
+      "Town": {
+        "schools": 55.0,
+        "students": 41758.0,
+        "no_calculus_pct_schools": 10.909,
+        "no_dual_pct_schools": 1.818,
+        "thin_or_none_pct_students": 0.108,
+        "median_dc_share": 0.707
+      }
+    },
+    "by_frl_quartile": {
+      "Q1 lowest": {
+        "schools": 94.0,
+        "no_calculus_pct_schools": 5.319,
+        "median_dc_share": 0.742
+      },
+      "Q2": {
+        "schools": 93.0,
+        "no_calculus_pct_schools": 10.753,
+        "median_dc_share": 0.699
+      },
+      "Q3": {
+        "schools": 93.0,
+        "no_calculus_pct_schools": 17.204,
+        "median_dc_share": 0.706
+      },
+      "Q4 highest": {
+        "schools": 94.0,
+        "no_calculus_pct_schools": 41.489,
+        "median_dc_share": 0.505
+      }
+    },
+    "counties": 92,
+    "counties_no_calc_anywhere": 3,
+    "counties_majority_no_calc": 8
+  },
+  "table1": {
+    "Low": {
+      "school_cohorts": 460.0,
+      "dc_share": 0.5,
+      "frl_share": 0.452,
+      "ap_pass_share": 0.1,
+      "corp_early_alg": 0.201,
+      "calc_offered": 0.772,
+      "rural": 0.304,
+      "grads": 164.5,
+      "gpa": 2.634,
+      "credits": 20.853,
+      "remed_rate": 0.042
+    },
+    "Middle": {
+      "school_cohorts": 459.0,
+      "dc_share": 0.69,
+      "frl_share": 0.333,
+      "ap_pass_share": 0.144,
+      "corp_early_alg": 0.216,
+      "calc_offered": 0.847,
+      "rural": 0.527,
+      "grads": 131.0,
+      "gpa": 2.827,
+      "credits": 22.6,
+      "remed_rate": 0.033
+    },
+    "High": {
+      "school_cohorts": 460.0,
+      "dc_share": 0.833,
+      "frl_share": 0.319,
+      "ap_pass_share": 0.111,
+      "corp_early_alg": 0.235,
+      "calc_offered": 0.787,
+      "rural": 0.674,
+      "grads": 89.0,
+      "gpa": 2.88,
+      "credits": 23.154,
+      "remed_rate": 0.033
+    }
+  }
+}

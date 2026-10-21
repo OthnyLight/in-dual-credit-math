@@ -1,0 +1,10 @@
+# raw downloads are large and re-fetchable; PROVENANCE.txt is committed
+data/raw/**/*.zip
+data/raw/**/*.xlsx
+data/raw/**/*.pdf
+!data/raw/PROVENANCE.txt
+paper/manuscript.pdf
+__pycache__/
+node_modules/
+.env
+*.pem

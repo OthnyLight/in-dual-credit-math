@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "Dual-credit mathematics as a readiness lever: Indiana school-level analysis and access atlas"
+version: "0.1.0"
+date-released: "[VERIFY release date YYYY-MM-DD]"
+authors:
+  - family-names: "Sa'anga"
+    given-names: "Othniel Iyassa"
+    orcid: "https://orcid.org/0009-0002-6113-6158"
+    email: "othnylight@gmail.com"
+    affiliation: "Independent Researcher, Indianapolis, IN, USA"
+license: MIT
+repository-code: "[VERIFY repository URL]"
+doi: "[VERIFY DOI after Zenodo deposit]"
+abstract: "Links Indiana Commission for Higher Education first-year college outcomes to Civil Rights Data Collection course offerings for Indiana public high schools to estimate the school-level association between dual-credit uptake and college readiness, and maps where calculus and dual enrollment are missing. Code MIT; derived data and documents CC BY 4.0."
+keywords:
+  - dual credit
+  - dual enrollment
+  - college readiness
+  - mathematics pathways
+  - Algebra I
+  - Indiana
+  - Civil Rights Data Collection

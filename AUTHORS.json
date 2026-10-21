@@ -1,0 +1,23 @@
+{
+  "_comment": "Author block for this project. Every document, citation file, Zenodo record, manuscript author list, and commit reads from here. Order is author order. Roles use CRediT terms. Replace every [VERIFY ...] value before release.",
+  "authors": [
+    {
+      "name": "Othniel Iyassa Sa'anga",
+      "family": "Sa'anga",
+      "given": "Othniel Iyassa",
+      "orcid": "0009-0002-6113-6158",
+      "email": "othnylight@gmail.com",
+      "affiliation": "Independent Researcher, Indianapolis, IN, USA",
+      "roles": [
+        "Conceptualization",
+        "Methodology",
+        "Formal analysis",
+        "Validation",
+        "Writing - original draft",
+        "Writing - review and editing"
+      ],
+      "corresponding": true
+    }
+  ],
+  "collaborators": []
+}

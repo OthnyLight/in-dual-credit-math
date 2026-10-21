@@ -1,0 +1,306 @@
+<title>Indiana Dual-Credit Math Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: masthead with three findings, then a two-column atlas (map | filters + school detail), then the school register. */
+:root {
+  --bg: #f7f8fa; --panel: #ffffff; --ink: #14181f; --ink-2: #4b5260; --ink-3: #7b8290;
+  --rule: #dfe3ea; --accent: #2a78d6; --none: #eb6834; --thin: #14181f; --nocalc: #6250d6; --ok: #9aa3b2;
+  --zero: #eef0f3; --s1: #cde2fb; --s2: #9ec5f4; --s3: #3987e5; --s4: #1c5cab; --s5: #0d366b;
+  --draft-bg: #fdecec; --draft-ink: #a32020;
+  --f-display: "Literata", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12151b; --panel: #1a1e26; --ink: #eef0f4; --ink-2: #b7bdc8; --ink-3: #8a91a0;
+  --rule: #2c323d; --accent: #5598e7; --none: #f07a4a; --thin: #eef0f4; --nocalc: #9085e9; --ok: #5c6575;
+  --zero: #232832; --s1: #1d3554; --s2: #1c5cab; --s3: #3987e5; --s4: #86b6ef; --s5: #cde2fb;
+  --draft-bg: #3a1c1c; --draft-ink: #f2a7a7; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #12151b; --panel: #1a1e26; --ink: #eef0f4; --ink-2: #b7bdc8; --ink-3: #8a91a0;
+  --rule: #2c323d; --accent: #5598e7; --none: #f07a4a; --thin: #eef0f4; --nocalc: #9085e9; --ok: #5c6575;
+  --zero: #232832; --s1: #1d3554; --s2: #1c5cab; --s3: #3987e5; --s4: #86b6ef; --s5: #cde2fb;
+  --draft-bg: #3a1c1c; --draft-ink: #f2a7a7; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 48px }
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 28px }
+.draft { background: var(--draft-bg); color: var(--draft-ink); font-size: 13px; padding: 8px 12px; border-radius: 6px }
+header { display: grid; gap: 10px }
+.eyebrow { font-family: var(--f-data); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3) }
+h1 { font-family: var(--f-display); font-weight: 650; font-size: clamp(28px, 4.2vw, 42px); line-height: 1.12; margin: 0; text-wrap: balance; max-width: 22ch }
+.lede { color: var(--ink-2); max-width: 66ch; margin: 0 }
+.findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule) }
+.finding { padding: 14px 18px 14px 0; display: grid; gap: 4px; min-width: 0 }
+.finding + .finding { padding-left: 18px; border-left: 1px solid var(--rule) }
+.finding b { font-family: var(--f-display); font-weight: 650; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums }
+.finding span { font-size: 13.5px; color: var(--ink-2) }
+.atlas { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: start }
+.mapbox { position: relative; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px }
+#map { width: 100%; height: auto; display: block }
+#map path.cty { stroke: var(--panel); stroke-width: .8; cursor: default }
+#map path.cty:hover { stroke: var(--ink); stroke-width: 1.4 }
+#map .sch { cursor: pointer; stroke: var(--panel); stroke-width: 1.2 }
+#map .sch.sel { stroke: var(--ink); stroke-width: 2.2 }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12.5px; padding: 7px 9px; border-radius: 6px; max-width: 240px; line-height: 1.35 }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12.5px; color: var(--ink-2); margin-top: 8px }
+.ramp { display: inline-flex; gap: 2px; align-items: center }
+.ramp i { width: 20px; height: 10px; display: inline-block; border-radius: 2px }
+.side { display: grid; gap: 18px; min-width: 0 }
+.ctl { display: grid; gap: 8px }
+.ctl h2, .register h2 { font-family: var(--f-display); font-weight: 650; font-size: 19px; margin: 0 }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; flex-wrap: wrap }
+.seg button { font: inherit; font-size: 13px; background: var(--panel); color: var(--ink-2); border: 0; padding: 7px 11px; cursor: pointer }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg) }
+.chips { display: flex; flex-wrap: wrap; gap: 8px }
+.chip { font: inherit; font-size: 13px; display: inline-flex; gap: 7px; align-items: center; background: var(--panel); color: var(--ink); border: 1px solid var(--rule); border-radius: 999px; padding: 5px 11px 5px 9px; cursor: pointer }
+.chip[aria-pressed="false"] { opacity: .45 }
+.chip .n { font-family: var(--f-data); font-size: 12px; color: var(--ink-3) }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none }
+.dot.sq { border-radius: 2px; transform: rotate(45deg); width: 9px; height: 9px }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.detail { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; display: grid; gap: 10px; min-height: 180px }
+.detail .nm { font-family: var(--f-display); font-weight: 650; font-size: 20px; line-height: 1.2; margin: 0 }
+.detail .sub { color: var(--ink-2); font-size: 13.5px; margin: 0 }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 13.5px }
+.kv dt { color: var(--ink-3) } .kv dd { margin: 0; font-family: var(--f-data); font-variant-numeric: tabular-nums }
+.pill { justify-self: start; font-size: 12.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; border: 1px solid currentColor }
+.empty { color: var(--ink-3); font-size: 14px; margin: 0 }
+.register { display: grid; gap: 12px }
+.reghead { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: end; justify-content: space-between }
+.reghead p { margin: 0; color: var(--ink-2); font-size: 13.5px; max-width: 70ch }
+input[type="search"] { font: inherit; font-size: 14px; padding: 7px 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--ink); min-width: 0; width: 240px; max-width: 100% }
+.tbl { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel) }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 680px }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--rule); vertical-align: top }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 500; cursor: pointer; white-space: nowrap; user-select: none }
+th[aria-sort] { color: var(--ink) }
+td.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; text-align: right } th.num { text-align: right }
+tbody tr { cursor: pointer } tbody tr:hover { background: var(--zero) }
+tbody tr:last-child td { border-bottom: 0 }
+.notes { color: var(--ink-3); font-size: 12.5px; max-width: 90ch; display: grid; gap: 6px }
+.notes p { margin: 0 }
+@media (max-width: 820px) {
+  .atlas { grid-template-columns: minmax(0, 1fr) }
+  .findings { grid-template-columns: minmax(0, 1fr) }
+  .finding + .finding { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule) }
+}
+@media (prefers-reduced-motion: no-preference) { #map path.cty { transition: fill .25s ease } }
+</style>
+
+<div class="wrap">
+  <div class="draft" id="draft">__DRAFT_NOTE__</div>
+  <header>
+    <div class="eyebrow">Indiana public high schools · CRDC 2021-22 and 2023-24 · CHE graduating cohorts 2021–2024</div>
+    <h1>Where dual-credit math is out of reach</h1>
+    <p class="lede">Dual credit is widespread in Indiana, but the course that leads into college mathematics is not. This atlas maps every traditional public high school by whether it reports dual enrollment and whether it offered calculus in either of the last two federal civil-rights collections.</p>
+    <div class="findings">
+      <div class="finding"><b id="f1"></b><span id="f1t"></span></div>
+      <div class="finding"><b id="f2"></b><span id="f2t"></span></div>
+      <div class="finding"><b id="f3"></b><span id="f3t"></span></div>
+    </div>
+  </header>
+
+  <section class="atlas">
+    <div class="mapbox">
+      <svg id="map" role="img" aria-label="Map of Indiana counties shaded by share of public high school students in schools without calculus, with dots for schools lacking dual enrollment or calculus"></svg>
+      <div class="tip" id="tip" hidden></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="side">
+      <div class="ctl">
+        <h2>County shading</h2>
+        <div class="seg" role="group" aria-label="County shading">
+          <button type="button" id="m-calc" aria-pressed="true">Students with no calculus</button>
+          <button type="button" id="m-thin" aria-pressed="false">No or thin pathway</button>
+        </div>
+      </div>
+      <div class="ctl">
+        <h2>Schools shown</h2>
+        <div class="chips" id="chips"></div>
+      </div>
+      <div class="detail" id="detail" aria-live="polite">
+        <p class="empty">Select a school on the map or in the register below to see its enrollment, dual-credit uptake, poverty share, and math offerings.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="register">
+    <div class="reghead">
+      <div>
+        <h2>School register</h2>
+        <p id="regnote"></p>
+      </div>
+      <input type="search" id="q" placeholder="Search school, corporation, county" aria-label="Search schools">
+    </div>
+    <div class="tbl"><table>
+      <thead><tr>
+        <th data-k="SCH_NAME">School</th><th data-k="NMCNTY">County</th><th data-k="locale4">Locale</th>
+        <th data-k="tier">Status</th><th class="num" data-k="enr">Enrollment</th>
+        <th class="num" data-k="dc_share_pooled">Dual credit</th><th class="num" data-k="frl_share_pooled">Free/reduced lunch</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+  </section>
+
+  <div class="notes">
+    <p><strong>Definitions.</strong> Calculus and dual enrollment count as offered if the school reported them in either CRDC 2021-22 or 2023-24; small schools often run calculus in alternate years. "Thin pathway" means no calculus and fewer than one in three graduates (cohorts 2021–2024) earning dual credit from an Indiana public college. Dual-credit share and free/reduced-lunch share come from Indiana Commission for Higher Education graduate breakouts; enrollment is CRDC 2023-24. Virtual and alternative schools are excluded.</p>
+    <p><strong>Limits.</strong> Neither federal nor state files identify the subject of dual-credit courses, so "dual-credit math" is approximated by the calculus pipeline plus overall dual-credit uptake. A school without calculus can still offer dual-credit finite math or college algebra.</p>
+    <p>Sources: U.S. Department of Education Civil Rights Data Collection; NCES Common Core of Data and EDGE geocodes 2023-24; Indiana Commission for Higher Education College-Going datasets; U.S. Census Bureau cartographic boundaries 2023.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+const COUNTIES = __COUNTIES__;
+const SCHOOLS = __SCHOOLS__;
+const STATS = __STATS__;
+
+const TIERS = [
+  { k: "No dual enrollment reported", short: "No dual enrollment", cls: "none", shape: "circle" },
+  { k: "Thin pathway: no calculus and low uptake", short: "Thin pathway", cls: "thin", shape: "diamond" },
+  { k: "Dual credit, but no calculus", short: "Dual credit, no calculus", cls: "nocalc", shape: "circle" },
+  { k: "Dual credit and calculus", short: "Dual credit and calculus", cls: "ok", shape: "circle" }
+];
+const tierOf = Object.fromEntries(TIERS.map(t => [t.k, t]));
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const pct = (v, d = 0) => v == null || isNaN(v) ? "—" : (100 * v).toFixed(d) + "%";
+const fmt = n => n == null || isNaN(n) ? "—" : Math.round(n).toLocaleString("en-US");
+
+// findings
+const A = STATS.access, T = A.tiers, fq = A.by_frl_quartile;
+document.getElementById("f1").textContent = pct(A.no_calc_share_schools);
+document.getElementById("f1t").textContent = `of ${A.traditional_schools} traditional public high schools offered no calculus in either year, enrolling ${pct(A.no_calc_share_students)} of students.`;
+document.getElementById("f2").textContent = `${Math.round(fq["Q1 lowest"].no_calculus_pct_schools)}% vs ${Math.round(fq["Q4 highest"].no_calculus_pct_schools)}%`;
+document.getElementById("f2t").textContent = "no-calculus rate in the lowest- versus highest-poverty quarter of schools.";
+document.getElementById("f3").textContent = A.counties_no_calc_anywhere;
+document.getElementById("f3t").textContent = `counties where no public high school offered calculus; ${(T["No dual enrollment reported"] || {}).schools || 0} schools reported no dual enrollment at all.`;
+
+// state
+let mode = "calc";
+const shown = new Set(TIERS.filter(t => t.cls !== "ok").map(t => t.k));
+let selected = null, sortK = "enr", sortDir = -1;
+
+// map
+const svg = d3.select("#map");
+const W = 520, H = 760;
+svg.attr("viewBox", `0 0 ${W} ${H}`);
+const proj = d3.geoTransverseMercator().rotate([86.25, 0]).fitExtent([[8, 8], [W - 8, H - 8]], COUNTIES);
+const path = d3.geoPath(proj);
+const gC = svg.append("g"), gS = svg.append("g");
+const BREAKS = [0.001, 10, 25, 50, 99.999];
+const RAMP = ["--zero", "--s1", "--s2", "--s3", "--s4", "--s5"];
+const LABELS = ["0%", "<10%", "10–25%", "25–50%", "50–99%", "100%"];
+function fillFor(f) {
+  const v = mode === "calc" ? f.properties.pct_students_no_calc : f.properties.pct_students_thin_or_none;
+  if (v == null) return css("--zero");
+  let i = BREAKS.findIndex(b => v < b); if (i === -1) i = 5;
+  return css(RAMP[i]);
+}
+const tip = document.getElementById("tip"), box = document.querySelector(".mapbox");
+function showTip(ev, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = box.getBoundingClientRect();
+  let x = ev.clientX - r.left + 12, y = ev.clientY - r.top + 12;
+  if (x + 250 > r.width) x = ev.clientX - r.left - 252;
+  tip.style.left = Math.max(4, x) + "px"; tip.style.top = y + "px";
+}
+gC.selectAll("path").data(COUNTIES.features).join("path").attr("class", "cty").attr("d", path)
+  .on("mousemove", (ev, f) => {
+    const p = f.properties;
+    showTip(ev, `<b>${p.NAME} County</b><br>${p.schools ? `${fmt(p.schools)} public high school${p.schools === 1 ? "" : "s"}, ${fmt(p.students)} students<br>No calculus: ${p.pct_students_no_calc.toFixed(0)}% of students<br>No or thin pathway: ${p.pct_students_thin_or_none.toFixed(0)}%` : "No traditional public high school in the data"}`);
+  })
+  .on("mouseleave", () => tip.hidden = true);
+
+const r = d => Math.max(3.2, Math.min(9, Math.sqrt(d.enr || 50) / 4.2));
+function drawSchools() {
+  const data = SCHOOLS.filter(s => shown.has(s.tier) && s.LAT != null);
+  gS.selectAll("path.sch").data(data, d => d.SCH_NAME + d.LEA_NAME).join("path")
+    .attr("class", d => "sch" + (d === selected ? " sel" : ""))
+    .attr("transform", d => `translate(${proj([d.LON, d.LAT])})`)
+    .attr("d", d => d3.symbol(tierOf[d.tier].shape === "diamond" ? d3.symbolDiamond : d3.symbolCircle, Math.PI * r(d) ** 2)())
+    .attr("fill", d => css("--" + tierOf[d.tier].cls))
+    .on("mousemove", (ev, d) => showTip(ev, `<b>${d.SCH_NAME}</b><br>${tierOf[d.tier].short} · ${fmt(d.enr)} students`))
+    .on("mouseleave", () => tip.hidden = true)
+    .on("click", (ev, d) => select(d));
+}
+function paint() {
+  gC.selectAll("path").attr("fill", fillFor);
+  drawSchools();
+  const lg = document.getElementById("legend");
+  lg.innerHTML = `<span>${mode === "calc" ? "Students in schools with no calculus" : "Students in schools with no or thin pathway"}</span>
+    <span class="ramp">${RAMP.map((c, i) => `<i style="background:var(${c})" title="${LABELS[i]}"></i>`).join("")}</span>
+    <span style="font-family:var(--f-data);font-size:12px">0 → 100%</span>`;
+}
+
+// chips
+const chips = document.getElementById("chips");
+TIERS.forEach(t => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "chip"; b.id = "chip-" + t.cls;
+  b.setAttribute("aria-pressed", shown.has(t.k));
+  const n = SCHOOLS.filter(s => s.tier === t.k).length;
+  b.innerHTML = `<span class="dot ${t.shape === "diamond" ? "sq" : ""}" style="background:var(--${t.cls})"></span>${t.short}<span class="n">${n}</span>`;
+  b.onclick = () => { shown.has(t.k) ? shown.delete(t.k) : shown.add(t.k); b.setAttribute("aria-pressed", shown.has(t.k)); paint(); };
+  chips.appendChild(b);
+});
+for (const [id, m] of [["m-calc", "calc"], ["m-thin", "thin"]]) {
+  document.getElementById(id).onclick = () => {
+    mode = m;
+    document.getElementById("m-calc").setAttribute("aria-pressed", m === "calc");
+    document.getElementById("m-thin").setAttribute("aria-pressed", m === "thin");
+    paint();
+  };
+}
+
+// detail
+function select(d) {
+  selected = d;
+  const t = tierOf[d.tier];
+  document.getElementById("detail").innerHTML = `
+    <span class="pill" style="color:var(--${t.cls === "ok" ? "ink-2" : t.cls})">${t.short}</span>
+    <p class="nm">${d.SCH_NAME}</p>
+    <p class="sub">${d.LEA_NAME} · ${d.NMCNTY} · ${d.locale4}</p>
+    <dl class="kv">
+      <dt>Enrollment, 2023-24</dt><dd>${fmt(d.enr)}</dd>
+      <dt>Graduates earning dual credit</dt><dd>${pct(d.dc_share_pooled)}</dd>
+      <dt>Free or reduced lunch</dt><dd>${pct(d.frl_share_pooled)}</dd>
+      <dt>Calculus offered</dt><dd>${d.calc_offered ? "Yes" : "No"}</dd>
+      <dt>Dual enrollment reported</dt><dd>${d.dual_any ? "Yes" : "No"}</dd>
+    </dl>`;
+  drawSchools();
+}
+
+// register
+const outN = SCHOOLS.filter(s => s.tier !== "Dual credit and calculus").length;
+document.getElementById("regnote").textContent = `${outN} schools without calculus or without dual enrollment, by default. Switch on "Dual credit and calculus" above to list every school. Click a row to see it on the map.`;
+function renderRows() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const rows = SCHOOLS.filter(s => shown.has(s.tier))
+    .filter(s => !q || [s.SCH_NAME, s.LEA_NAME, s.NMCNTY].join(" ").toLowerCase().includes(q))
+    .sort((a, b) => { const x = a[sortK], y = b[sortK]; return (x == null) - (y == null) || (x < y ? -1 : x > y ? 1 : 0) * sortDir; });
+  document.getElementById("rows").innerHTML = rows.map((s, i) => `<tr data-i="${SCHOOLS.indexOf(s)}">
+    <td>${s.SCH_NAME}</td><td>${s.NMCNTY.replace(" County", "")}</td><td>${s.locale4}</td>
+    <td><span class="dot ${tierOf[s.tier].shape === "diamond" ? "sq" : ""}" style="background:var(--${tierOf[s.tier].cls});margin-right:6px"></span>${tierOf[s.tier].short}</td>
+    <td class="num">${fmt(s.enr)}</td><td class="num">${pct(s.dc_share_pooled)}</td><td class="num">${pct(s.frl_share_pooled)}</td></tr>`).join("")
+    || `<tr><td colspan="7" class="empty">No schools match. Clear the search or switch on more statuses above.</td></tr>`;
+  document.querySelectorAll("th").forEach(th => th.toggleAttribute("aria-sort", th.dataset.k === sortK));
+}
+document.getElementById("rows").onclick = ev => {
+  const tr = ev.target.closest("tr[data-i]"); if (!tr) return;
+  select(SCHOOLS[+tr.dataset.i]);
+  document.querySelector(".atlas").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+};
+document.querySelectorAll("th").forEach(th => th.onclick = () => {
+  if (sortK === th.dataset.k) sortDir *= -1; else { sortK = th.dataset.k; sortDir = th.classList.contains("num") ? -1 : 1; }
+  renderRows();
+});
+document.getElementById("q").oninput = renderRows;
+const _paint = paint; paint = function () { _paint(); renderRows(); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paint);
+new MutationObserver(paint).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+paint();
+</script>

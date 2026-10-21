@@ -1,0 +1,9 @@
+pandas>=2.2
+numpy>=1.26
+openpyxl>=3.1
+statsmodels>=0.14
+matplotlib>=3.8
+geopandas>=1.0
+pyogrio>=0.7
+shapely>=2.0
+zipfile-deflate64>=0.2
