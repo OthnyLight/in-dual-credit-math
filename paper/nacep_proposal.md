@@ -1,5 +1,3 @@
-> **DRAFT — not verified by the author. Do not submit or circulate.**
-
 # NACEP National Conference — breakout session proposal kit
 
 **Target call:** 2027 NACEP National Conference. The 2026 call (Cleveland, October 18–20, 2026) closed April 10, 2026.

@@ -1,5 +1,5 @@
 {
-  "_comment": "Author block for this project. Every document, citation file, Zenodo record, manuscript author list, and commit reads from here. Order is author order. Roles use CRediT terms. Replace every [VERIFY ...] value before release.",
+  "_comment": "Author block for this project. Every document, citation file, Zenodo record, manuscript author list, and commit reads from here. Order is author order. Roles use CRediT terms.",
   "authors": [
     {
       "name": "Othniel Iyassa Sa'anga",

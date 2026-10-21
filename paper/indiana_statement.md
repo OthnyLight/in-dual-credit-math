@@ -1,5 +1,3 @@
-> **DRAFT — not verified by the author. Do not submit or circulate.**
-
 # Written statement on dual-credit access and college readiness in Indiana
 
 **To:** Indiana Commission for Higher Education, in connection with its September 10, 2026 Request for Information on expanding access to the Indiana College Core and dual credit; and the Indiana Department of Education review of dual-credit, career-technical, and Advanced Placement offerings directed by the General Assembly.
@@ -24,7 +22,7 @@ I analyzed public data on 359 Indiana public high schools and the 99,332 graduat
 3. **Measure success by who is reached, not only by how many credits are earned.** Because outcomes for non-participants are weakest where programs are largest, state goals should track the share of graduates, by school poverty level, who complete a college-level mathematics course before graduation.
 
 ## Method and materials
-The analysis uses only public data: CHE College-Going datasets (2019 and 2021–2024 cohorts), the U.S. Department of Education Civil Rights Data Collection (2021-22 and 2023-24), and NCES Common Core of Data. Associations are school-level and observational; they are not estimates of the effect of dual credit on individual students. Code, data, an interactive map of every school, and a full manuscript are available at [VERIFY repository URL / DOI].
+The analysis uses only public data: CHE College-Going datasets (2019 and 2021–2024 cohorts), the U.S. Department of Education Civil Rights Data Collection (2021-22 and 2023-24), and NCES Common Core of Data. Associations are school-level and observational; they are not estimates of the effect of dual credit on individual students. Code, data, an interactive map of every school, and a full manuscript are available at https://github.com/OthnyLight/in-dual-credit-math.
 
 I would welcome the opportunity to share the school-level map with Commission staff.
 

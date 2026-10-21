@@ -6,7 +6,7 @@ Nothing has been pushed or submitted. Every step below happens **after** `docs/V
 1. Fill every `[VERIFY ...]` field in `AUTHORS.json` and `CITATION.cff` (name, ORCID, affiliation).
 2. Rewrite the `[VERIFY: author ...]` paragraphs in `code/06_manuscript.js` and the fields in `code/07_briefs.py` in your own words. They live in the scripts so a rerun never loses them.
 3. `bash run_all.sh --final` regenerates every figure, the atlas, the manuscript, and the briefs without DRAFT stamps.
-4. `python code/publish_gate.py . --allow-draft-in code/ docs/VERIFY_CHECKLIST.md docs/PUBLISH_GUIDE.md` must report clear. (The scripts and these two guides mention the stamps by name; `run_all.sh --final` separately refuses to finish if the manuscript still contains any `[VERIFY]` text.)
+4. `python code/publish_gate.py . --allow-draft-in code/ docs/VERIFY_CHECKLIST.md docs/PUBLISH_GUIDE.md map/atlas_template.html paper/nacep_proposal.md paper/indiana_statement.md` (the last two are submission kits whose remaining tags are filled at submission time) must report clear. (The scripts and these two guides mention the stamps by name; `run_all.sh --final` separately refuses to finish if the manuscript still contains any `[VERIFY]` text.)
 
 ## 1. GitHub (no token was supplied)
 1. Create an empty repository at github.com/new, for example `in-dual-credit-math`, with no README.

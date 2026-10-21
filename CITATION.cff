@@ -3,7 +3,7 @@ message: "If you use this work, please cite it as below."
 type: software
 title: "Dual-credit mathematics as a readiness lever: Indiana school-level analysis and access atlas"
 version: "0.1.0"
-date-released: "[VERIFY release date YYYY-MM-DD]"
+date-released: "2026-10-21"
 authors:
   - family-names: "Sa'anga"
     given-names: "Othniel Iyassa"
@@ -11,8 +11,7 @@ authors:
     email: "othnylight@gmail.com"
     affiliation: "Independent Researcher, Indianapolis, IN, USA"
 license: MIT
-repository-code: "[VERIFY repository URL]"
-doi: "[VERIFY DOI after Zenodo deposit]"
+repository-code: "https://github.com/OthnyLight/in-dual-credit-math"
 abstract: "Links Indiana Commission for Higher Education first-year college outcomes to Civil Rights Data Collection course offerings for Indiana public high schools to estimate the school-level association between dual-credit uptake and college readiness, and maps where calculus and dual enrollment are missing. Code MIT; derived data and documents CC BY 4.0."
 keywords:
   - dual credit

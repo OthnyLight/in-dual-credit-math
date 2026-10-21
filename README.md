@@ -1,10 +1,10 @@
 # Dual-credit mathematics as a readiness lever (Indiana)
 
-**Status:** DRAFT v0.1, unverified, 2026-10-17 | **Maintainer:** see `AUTHORS.json` | **License:** code MIT; data, figures, and text CC BY 4.0
+**Status:** v0.1.0, verified by the author 2026-10-21 | **Maintainer:** see `AUTHORS.json` | **License:** code MIT; data, figures, and text CC BY 4.0
 
 Do Indiana high schools where more students earn dual credit send graduates who do better in their first year of college, after accounting for when students reach Algebra I and which math courses the school offers? And where is the mathematics pathway into dual credit missing? This repository answers both questions with public data only. It is meant for state and district policymakers, dual-credit partnership staff, and researchers who want to rerun the analysis for their own schools.
 
-Headline numbers are in `docs/HEADLINES.md`, generated from `paper/stats.json`. Do not cite them until the author has completed `docs/VERIFY_CHECKLIST.md`.
+Headline numbers are in `docs/HEADLINES.md`, generated from `paper/stats.json`.
 
 ## What is here
 
@@ -13,7 +13,7 @@ code/
   01_fetch.py        download every source; log bytes + SHA-256 to data/raw/PROVENANCE.txt
   02_build.py        link CHE outcomes to CCD/CRDC; build the school-cohort panel and access file; write qa_report.txt
   03_analysis.py     models, heterogeneity, sensitivity, access tables; write paper/stats.json and paper/tables/
-  04_figures.py      paper figures (DRAFT-stamped unless --final) and map data
+  04_figures.py      paper figures (review stamp unless --final) and map data
   05_atlas.py        interactive atlas page map/atlas.html
   06_manuscript.js   manuscript paper/manuscript.docx, every number read from stats.json
   07_briefs.py       NACEP proposal, Indiana written statement, docs/HEADLINES.md
@@ -32,7 +32,7 @@ Python 3.11+ and Node 18+.
 pip install -r requirements.txt
 npm install docx@9
 bash run_all.sh            # or the scripts one at a time, in order
-bash run_all.sh --final    # only after verification: removes DRAFT stamps
+bash run_all.sh --final    # publication build without review stamps
 ```
 
 The fetch downloads about 1.4 GB (the CRDC 2021-22 archive is 832 MB). Every later step runs offline from `data/raw/`. A stranger running these steps should reproduce `data/processed/` and `paper/stats.json` exactly.
@@ -55,4 +55,4 @@ Read `docs/LIMITATIONS.md` before using or citing anything here. In short, the r
 
 ## Citation
 
-See `CITATION.cff`. DOI: pending first release.
+See `CITATION.cff`. Repository: https://github.com/OthnyLight/in-dual-credit-math. DOI: added after the first Zenodo deposit.
