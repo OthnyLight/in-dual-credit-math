@@ -13,4 +13,7 @@ if [ "$FINAL" = "--final" ] && unzip -p paper/manuscript.docx word/document.xml 
   echo "manuscript.docx still contains [VERIFY] text; resolve it in code/06_manuscript.js" >&2; exit 1
 fi
 python code/07_briefs.py $FINAL
+python code/08_preprint_stats.py
+python code/09_pbi_figures.py
+python code/10_preprint.py
 echo "done; QA in data/processed/qa_report.txt, numbers in paper/stats.json"

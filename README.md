@@ -17,6 +17,7 @@ code/
   05_atlas.py        interactive atlas page map/atlas.html
   06_manuscript.js   manuscript paper/manuscript.docx, every number read from stats.json
   07_briefs.py       NACEP proposal, Indiana written statement, docs/HEADLINES.md
+  08_preprint_stats.py, 09_pbi_figures.py, 10_preprint.py   preprint (paper/preprint/preprint.pdf); needs revtex4-2
 data/raw/            inputs as fetched (not committed; see .gitignore) + PROVENANCE.txt
 data/processed/      school_cohort_panel.csv, school_access.csv, school_access_tiers.csv, qa_report.txt
 paper/               stats.json, tables/, figures/, manuscript.docx, nacep_proposal.md, indiana_statement.md

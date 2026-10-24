@@ -8,3 +8,7 @@ __pycache__/
 node_modules/
 .env
 *.pem
+paper/preprint/*.aux
+paper/preprint/*.log
+paper/preprint/*.out
+paper/preprint/*Notes.bib
