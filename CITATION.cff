@@ -4,6 +4,7 @@ type: software
 title: "Dual-credit mathematics as a readiness lever: Indiana school-level analysis and access atlas"
 version: "0.1.0"
 date-released: "2026-10-21"
+doi: "10.5281/zenodo.24519559"
 authors:
   - family-names: "Sa'anga"
     given-names: "Othniel Iyassa"
@@ -21,3 +22,10 @@ keywords:
   - Algebra I
   - Indiana
   - Civil Rights Data Collection
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24519559"
+    description: "Zenodo concept DOI (all versions)"
+  - type: doi
+    value: "10.5281/zenodo.24519561"
+    description: "Zenodo DOI for v0.1.0"
