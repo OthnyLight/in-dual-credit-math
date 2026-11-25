@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24519559.svg)](https://doi.org/10.5281/zenodo.24519559)
+
 # Dual-credit mathematics as a readiness lever (Indiana)
 
 **Status:** v0.1.0, verified by the author 2026-10-21 | **Maintainer:** see `AUTHORS.json` | **License:** code MIT; data, figures, and text CC BY 4.0
@@ -56,4 +58,4 @@ Read `docs/LIMITATIONS.md` before using or citing anything here. In short, the r
 
 ## Citation
 
-See `CITATION.cff`. Repository: https://github.com/OthnyLight/in-dual-credit-math. DOI: added after the first Zenodo deposit.
+See `CITATION.cff`. Repository: https://github.com/OthnyLight/in-dual-credit-math. Archived on Zenodo: [doi:10.5281/zenodo.24519559](https://doi.org/10.5281/zenodo.24519559) (all versions; v0.1.0 is [doi:10.5281/zenodo.24519561](https://doi.org/10.5281/zenodo.24519561)).
