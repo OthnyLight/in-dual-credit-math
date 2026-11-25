@@ -1,0 +1,29 @@
+{
+  "upload_type": "software",
+  "license": "mit",
+  "title": "Dual-credit mathematics as a readiness lever: Indiana school-level analysis and access atlas",
+  "description": "<p>Links Indiana Commission for Higher Education first-year college outcomes to Civil Rights Data Collection course offerings for Indiana public high schools (359 schools, 1,379 school-cohorts, 99,332 Indiana public college enrollees, classes of 2021–2024) to estimate the school-level association between dual-credit uptake and college readiness, and maps where calculus and dual enrollment are missing. 77 of 381 traditional public high schools (20%) offered no calculus, from 5% in the lowest-poverty quartile to 41% in the highest.</p><p>Includes the reproducible pipeline, derived school panel and access files, preprint, manuscript and interactive access atlas. Code MIT; derived data, figures and text CC BY 4.0.</p>",
+  "keywords": [
+    "dual credit",
+    "dual enrollment",
+    "college readiness",
+    "mathematics pathways",
+    "Algebra I",
+    "Indiana",
+    "Civil Rights Data Collection"
+  ],
+  "creators": [
+    {
+      "name": "Sa'anga, Othniel Iyassa",
+      "orcid": "0009-0002-6113-6158",
+      "affiliation": "Independent Researcher, Indianapolis, IN, USA"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/OthnyLight/in-dual-credit-math",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}
